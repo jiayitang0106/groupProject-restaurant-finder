@@ -1,32 +1,27 @@
 const db = require('./index.js');
 
-
 const data = [];
 
 for (let i = 1; i <= 100; i++) {
-  let restaurant = {
+  const restaurant = {
     id: i,
-    photos: [],
+    imageUrls: [],
   }
 
-  let numberPhotos = Math.floor(Math.random() * 10 + 2);
+  let numberPhotos = Math.floor(Math.random() * 12 + 2);
 
   for (let j = numberPhotos; j > 0; j--) {
-    const num = Math.floor((Math.random() * 823));
-    let url = `https://hrr42-fec5.s3-us-west-1.amazonaws.com/photo${num}.jpg`;
-    restaurant.photos.push(url);
+    const num = Math.floor((Math.random() * 822 + 1));
+    const url = `https://hrr42-fec5.s3-us-west-1.amazonaws.com/photo${num}.jpg`;
+    restaurant.imageUrls.push(url);
   }
 
   data.push(restaurant);
 }
 
-return data;
+const populate = () => {
+  Restaurants.create(data)
+    .then(() => console.log('Database populated'));
+};
 
-
-
-// const insertSampleBlogs = function() {
-//   Blog.create(samplePosts)
-//     .then(() => db.disconnect());
-// };
-
-// insertSampleBlogs();
+populate();
