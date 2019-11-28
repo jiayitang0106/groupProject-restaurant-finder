@@ -4,9 +4,7 @@ const parser = require('body-parser');
 const morgan = require('morgan');
 const db = require('./db/index.js');
 
-
 const app = express();
-
 
 app.use(morgan('dev'));
 app.use(parser.json());

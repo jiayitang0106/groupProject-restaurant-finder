@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
+const Restaurants = require('./restaurant.js');
 
+mongoose.set('useCreateIndex', true);
 
 mongoose.connect('mongodb://localhost/zagat', {
   useNewUrlParser: true,
@@ -10,12 +12,6 @@ mongoose.connect('mongodb://localhost/zagat', {
 
 const db = mongoose.connection;
 
-const restaurantSchema = new mongoose.Schema({
-  id: { type: Number, unique: true },
-  imageUrls: [],
-});
-
-const Restaurants = mongoose.model('Restaurant', restaurantSchema);
 
 const get = (id) => {
   return new Promise((resolve, reject) => {
@@ -29,5 +25,5 @@ const get = (id) => {
   });
 }
 
-module.exports = { db, get, Restaurants };
-// module.exports.get = get;
+module.exports = { db, get };
+
