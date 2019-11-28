@@ -8,7 +8,7 @@ for (let i = 1; i <= 100; i++) {
     imageUrls: [],
   }
 
-  let numberPhotos = Math.floor(Math.random() * 12 + 2);
+  let numberPhotos = Math.floor(Math.random() * 12 + 4);
 
   for (let j = numberPhotos; j > 0; j--) {
     const num = Math.floor((Math.random() * 822 + 1));
