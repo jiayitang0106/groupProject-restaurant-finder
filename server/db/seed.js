@@ -1,4 +1,5 @@
 const db = require('./index.js');
+const Restaurants = require('./index.js');
 
 const data = [];
 
@@ -20,7 +21,7 @@ for (let i = 1; i <= 100; i++) {
 }
 
 const populate = () => {
-  Restaurants.create(data)
+  Restaurants.collection.insert(data)
     .then(() => console.log('Database populated'));
 };
 

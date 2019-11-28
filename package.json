@@ -5,7 +5,8 @@
   "license": "ISC",
   "scripts": {
     "start": "nodemon server/index.js",
-    "build": "webpack -d --watch"
+    "build": "webpack -d --watch",
+    "db:seed": "node server/db/seed.js"
   },
   "dependencies": {
     "@babel/core": "^7.7.4",

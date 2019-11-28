@@ -1,6 +1,8 @@
 const express = require('express');
+require('dotenv').config();
 const parser = require('body-parser');
 const morgan = require('morgan');
+const db = require('./db/index.js');
 
 
 const app = express();
@@ -14,8 +16,14 @@ app.use(express.static('public'));
 
 
 app.get('/api/restaurants/:restaurantId', (req, res) => {
-  console.log(req.params);
-  res.status(200).send('Images go here');
+  const id = parseInt(req.params.restaurantId);
+  db.get(id)
+    .then(entry => console.log(entry))
+    .then(res.status(200).send('Images go here'))
+    .catch(err => {
+      console.log(err);
+      res.status(404).end();
+    });
 });
 
 const port = process.env.PORT || 3001;

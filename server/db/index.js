@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 
-const db = mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:3001/zagat', {
+
+mongoose.connect('mongodb://localhost/zagat', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-  .then(() => console.log("Database connected"))
-  .catch(err => console.log(err));
+.then(() => console.log('Database connected'))
+.catch(err => console.log(err));
 
+const db = mongoose.connection;
 
 const restaurantSchema = new mongoose.Schema({
   id: { type: Number, unique: true },
@@ -17,8 +19,15 @@ const Restaurants = mongoose.model('Restaurant', restaurantSchema);
 
 const get = (id) => {
   return new Promise((resolve, reject) => {
-    Restaurants.find({ 'id': id }).exec((err, docs) => resolve(docs));
+    Restaurants.find({ 'id': id })
+      .exec((err, docs) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(docs);
+      });
   });
 }
 
-module.exports = db;
+module.exports = { db, get, Restaurants };
+// module.exports.get = get;
