@@ -3,14 +3,15 @@ const Restaurants = require('./restaurant.js');
 
 mongoose.set('useCreateIndex', true);
 
+const db = mongoose.connection;
+
 mongoose.connect('mongodb://localhost/zagat', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then(() => console.log('Database connected'))
-.catch(err => console.log(err));
+  .then(() => console.log('Database connected'))
+  .catch(err => console.log(err));
 
-const db = mongoose.connection;
 
 
 const get = (id) => {
