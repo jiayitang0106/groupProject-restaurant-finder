@@ -1,14 +1,74 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+import Image from './Image.jsx';
+import Single from './Single.jsx';
+import Multi from './Multi.jsx';
+
+const Carousel = styled.div`
+  width: 100%;
+  height: 200px;
+  color: green;
+`
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      view: 'multi',
+      id: '',
+      imageUrls: [],
+      single: '',
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    axios.get('/api/restaurants/1')
+      .then(res => {
+        const { id, imageUrls } = res.data[0];
+        this.setState({
+          id,
+          imageUrls,
+        });
+      });
+  }
+
+  handleClick(idx) {
+    this.setState({
+      view: 'single',
+      single: idx,
+    })
+
+  }
+
+  renderView() {
+    const { imageUrls, single, view }= this.state;
+    if (view === 'main') {
+      return (
+        <Carousel>
+          {imageUrls.map((url, idx) => <Image src={url} idx={idx} handleClick={this.handleClick} key={idx} />)}
+          <button onClick={() => this.setState({ view: 'multi'})}>Multi</button>
+        </Carousel>
+      );
+    } else if (view === 'single') {
+      return (
+        <Single url={imageUrls[single]} />
+      );
+    } else if (view === 'multi') {
+      return (
+        <Multi imageUrls={imageUrls} handleClick={this.handleClick} />
+      );
+    }
   }
 
   render() {
+    console.log(this.state);
     return (
-      <h1>Image Carousel</h1>
+      <div>
+        {this.renderView()}
+      </div>
     );
   }
 }
