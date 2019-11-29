@@ -1,6 +1,6 @@
 {
   "name": "image_carousel",
-  "description": "> Project description",
+  "description": "image carousel for zagat mockup",
   "author": "Allen Tsai",
   "license": "ISC",
   "scripts": {
@@ -17,12 +17,14 @@
     "dotenv": "^8.2.0",
     "eslint": "^6.7.1",
     "express": "^4.17.1",
+    "jest": "^24.9.0",
     "mongo": "^0.1.0",
     "mongoose": "^5.7.12",
     "morgan": "^1.9.1",
     "nodemon": "^2.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "styled-components": "^4.4.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },

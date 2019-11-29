@@ -15,8 +15,7 @@ app.use(express.static('public'));
 app.get('/api/restaurants/:restaurantId', (req, res) => {
   const id = parseInt(req.params.restaurantId);
   db.get(id)
-    .then(entry => console.log(entry))
-    .then(res.status(200).send('Images go here'))
+    .then(entry => res.status(200).send(entry))
     .catch(err => {
       console.log(err);
       res.status(404).end();
