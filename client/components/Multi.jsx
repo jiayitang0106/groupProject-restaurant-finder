@@ -11,10 +11,13 @@ const ImgStyled = styled.img`
   width: 200px;
   height: 200px;
 `
-const Multi = ({imageUrls, handleClick}) =>  {
+const Multi = ({imageUrls, handleClick, handleView}) =>  {
   return (
     <Container>
-      {imageUrls.map((url, idx) => <ImgStyled src={url} key={idx} onClick={() => handleClick(idx)}></ImgStyled>)}
+       {imageUrls.map((url, idx) => <ImgStyled src={url} key={idx} onClick={() => handleClick(idx)}></ImgStyled>)}
+      <div>
+        <button onClick={() => handleView('main')}>close</button>
+      </div>
     </Container>
   );
 }

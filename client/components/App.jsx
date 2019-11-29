@@ -15,13 +15,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      view: 'multi',
+      view: 'main',
       id: '',
       imageUrls: [],
       single: '',
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleView = this.handleView.bind(this);
   }
 
   componentDidMount() {
@@ -40,7 +41,12 @@ class App extends Component {
       view: 'single',
       single: idx,
     })
+  }
 
+  handleView(view) {
+    this.setState({
+      view,
+    })
   }
 
   renderView() {
@@ -49,16 +55,16 @@ class App extends Component {
       return (
         <Carousel>
           {imageUrls.map((url, idx) => <Image src={url} idx={idx} handleClick={this.handleClick} key={idx} />)}
-          <button onClick={() => this.setState({ view: 'multi'})}>Multi</button>
+          <button onClick={() => this.handleView('multi')}>Multi</button>
         </Carousel>
       );
     } else if (view === 'single') {
       return (
-        <Single url={imageUrls[single]} />
+        <Single url={imageUrls[single]} idx={single} total={imageUrls.length} handleClick={this.handleClick} handleView={this.handleView} />
       );
     } else if (view === 'multi') {
       return (
-        <Multi imageUrls={imageUrls} handleClick={this.handleClick} />
+        <Multi imageUrls={imageUrls} handleClick={this.handleClick} handleView={this.handleView} />
       );
     }
   }
