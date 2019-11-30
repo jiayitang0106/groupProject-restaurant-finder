@@ -9,10 +9,11 @@ const StyledContainer = styled.div`
   height: 100%;
   z-index: 10;
   background-color: rgba(16,24,32,.95);
-  margin-top: auto;
-  margin-bottom: auto;
+  box-sizing: border-box;
+  padding: 0 40px 40px;
+  /* margin-top: auto;
+  margin-bottom: auto; */
   text-align: center;
-  color: #fff;
   display: table;
 `
 
@@ -30,11 +31,11 @@ const StyledImg = styled.img`
 `
 
 const StyledNav = styled.div`
-vertical-align: middle;
-display: table-row;
-top: 0px;
-height: 80px;
-width: 1400px;
+  vertical-align: middle;
+  display: table-row;
+  top: 0px;
+  height: 80px;
+  width: 1400px;
 `
 
 const StyledName = styled.span`
@@ -69,9 +70,12 @@ const Single = ({ idx, total, handleView, url, handleClick }) =>  {
     <StyledContainer >
       <StyledNav>
         <StyledName>Barndiva
+          <div>
+
         <span>{idx+1} of {total}</span>
         <button onClick={() => handleView('multi')}>Multi</button> |
         <button onClick={() => handleView('main')}>Close</button>
+          </div>
         </StyledName>
       </StyledNav>
       <StyledImgWrapper>

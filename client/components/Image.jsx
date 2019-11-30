@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 const BigImgContainer = styled.div`
   display: inline-block;
+  min-width: 384px;
+  height: 384px;
   overflow:hidden;
   background-color: black;
 `
@@ -14,17 +16,19 @@ const ColumnContainer = styled.div`
 
 const TopSmallContainer = styled(BigImgContainer)`
   border: 3px solid #fff;
+  min-width: 190px;
+  height: 192px;
   border-top: 0;
 `
 
-const BottomSmallContainer = styled(BigImgContainer)`
+const BottomSmallContainer = styled(TopSmallContainer)`
   border: 3px solid #fff;
   border-bottom: 0;
 `
 
 const BigImg = styled.img`
-  width: 384px;
-  height: 384px;
+  width: 100%;
+  height: 100%;
   display: block;
   object-fit: cover;
   transition: .2s ease-in-out;

@@ -9,8 +9,8 @@ const StyledContainer = styled.div`
   height: 100%;
   z-index: 10;
   background-color: rgba(16,24,32,.95);
-  margin-top: auto;
-  margin-bottom: auto;
+  box-sizing: border-box;
+  padding: 0 40px 40px;
   text-align: center;
   color: #fff;
   display: table;
