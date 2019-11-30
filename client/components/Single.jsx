@@ -8,7 +8,7 @@ const StyledContainer = styled.div`
   width: 100%;
   height: 100%;
   z-index: 10;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(16,24,32,.95);
   margin-top: auto;
   margin-bottom: auto;
   text-align: center;
@@ -24,16 +24,27 @@ const StyledImgWrapper = styled.div`
 const StyledImg = styled.img`
   margin-left: auto;
   margin-right: auto;
-  width: 600px
-  max-height: 600px;
+  width: 800px
+  max-height: 800px;
   object-fit: cover;
 `
 
 const StyledNav = styled.div`
-  display: table-row;
-  top: 0px;
-  height: 20px;
-  width: 1400px;
+vertical-align: middle;
+display: table-row;
+top: 0px;
+height: 80px;
+width: 1400px;
+`
+
+const StyledName = styled.span`
+  display: table-cell;
+  vertical-align: middle;
+  color: white;
+  font: 11px/13px 'Arial';
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  align: center;
 `
 
 const Single = ({ idx, total, handleView, url, handleClick }) =>  {
@@ -55,10 +66,11 @@ const Single = ({ idx, total, handleView, url, handleClick }) =>  {
   return (
     <StyledContainer >
       <StyledNav>
-        <span>BELCAMPO MEAT CO</span>
+        <StyledName>Barndiva
         <span>{idx+1} of {total}</span>
         <button onClick={() => handleView('multi')}>Multi</button> |
         <button onClick={() => handleView('main')}>Close</button>
+        </StyledName>
       </StyledNav>
       <StyledImgWrapper>
         <StyledImg src={url} />
