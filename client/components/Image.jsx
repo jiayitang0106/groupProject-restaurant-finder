@@ -12,20 +12,14 @@ const ColumnContainer = styled.div`
   flex-direction: column;
 `
 
-const TopSmallContainer = styled.div`
-  display: inline-block;
-  overflow:hidden;
+const TopSmallContainer = styled(BigImgContainer)`
   border: 3px solid #fff;
   border-top: 0;
-  background-color: black;
 `
 
-const BottomSmallContainer = styled.div`
-  display: inline-block;
-  overflow:hidden;
+const BottomSmallContainer = styled(BigImgContainer)`
   border: 3px solid #fff;
   border-bottom: 0;
-  background-color: black;
 `
 
 const BigImg = styled.img`
@@ -40,17 +34,9 @@ const BigImg = styled.img`
     opacity: .9;
   }
 `
-const SmallImg = styled.img`
+const SmallImg = styled(BigImg)`
   width: 190px;
   height: 192px;
-  display: block;
-  object-fit: cover;
-  transition: .2s ease-in-out;
-
-  &:hover {
-    transform: scale(1.01);
-    opacity: .9;
-  }
 `
 
 const Image = ({src, handleClick, idx, imageUrls}) =>  {

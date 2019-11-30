@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
+const StyledContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -16,12 +16,12 @@ const Container = styled.div`
   display: table;
 `
 
-const Middle = styled.div`
+const StyledImgWrapper = styled.div`
   display: table-cell;
   vertical-align: middle;
 `
 
-const ImgStyled = styled.img`
+const StyledImg = styled.img`
   margin-left: auto;
   margin-right: auto;
   width: 600px
@@ -29,23 +29,45 @@ const ImgStyled = styled.img`
   object-fit: cover;
 `
 
+const StyledNav = styled.div`
+  display: table-row;
+  top: 0px;
+  height: 20px;
+  width: 1400px;
+`
+
 const Single = ({ idx, total, handleView, url, handleClick }) =>  {
+  document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 27:
+        handleView('main');
+        break;
+      case 37:
+        handleClick(idx-1);
+        break;
+      case 39:
+        handleClick(idx+1);
+        break;
+    }
+  };
+
+
   return (
-    <Container >
-      <Middle>
-      <div>
+    <StyledContainer >
+      <StyledNav>
         <span>BELCAMPO MEAT CO</span>
         <span>{idx+1} of {total}</span>
         <button onClick={() => handleView('multi')}>Multi</button> |
         <button onClick={() => handleView('main')}>Close</button>
-      </div>
-      <ImgStyled src={url} />
-      <div>
-        <button onClick={() => handleClick(idx-11)}>Prev</button>
-        <button onClick={() => handleClick(idx+1)}>Next</button>
-      </div>
-      </Middle>
-    </Container>
+      </StyledNav>
+      <StyledImgWrapper>
+        <StyledImg src={url} />
+        <div>
+          <button onClick={() => handleClick(idx-1)}>Prev</button>
+          <button onClick={() => handleClick(idx+1)}>Next</button>
+        </div>
+      </StyledImgWrapper>
+    </StyledContainer>
   );
 }
 
