@@ -7,6 +7,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 `
+
 const ImgStyled = styled.img`
   width: 200px;
   height: 200px;
