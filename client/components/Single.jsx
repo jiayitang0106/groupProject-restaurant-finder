@@ -48,20 +48,22 @@ const StyledName = styled.span`
 `
 
 const Single = ({ idx, total, handleView, url, handleClick }) =>  {
+  let prev = idx === 0 ? total - 1 : idx - 1;
+  let next = idx + 1 === total ? 0 : idx + 1;
+
   document.onkeydown = function(e) {
     switch (e.keyCode) {
       case 27:
         handleView('main');
         break;
       case 37:
-        handleClick(idx-1);
+        handleClick(prev);
         break;
       case 39:
-        handleClick(idx+1);
+        handleClick(next);
         break;
     }
   };
-
 
   return (
     <StyledContainer >
@@ -75,8 +77,8 @@ const Single = ({ idx, total, handleView, url, handleClick }) =>  {
       <StyledImgWrapper>
         <StyledImg src={url} />
         <div>
-          <button onClick={() => handleClick(idx-1)}>Prev</button>
-          <button onClick={() => handleClick(idx+1)}>Next</button>
+          <button onClick={() => handleClick(prev)}>Prev</button>
+          <button onClick={() => handleClick(next)}>Next</button>
         </div>
       </StyledImgWrapper>
     </StyledContainer>

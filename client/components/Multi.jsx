@@ -61,12 +61,20 @@ const StyledName = styled.span`
   align: center;
 `
 
+const StyledButtonWrapper = styled.span`
+  display: table-cell;
+  vertical-align: middle;
+`
+
 const Multi = ({imageUrls, handleClick, handleView}) =>  {
   return (
     <StyledContainer>
         <StyledNav>
           <StyledName>Barndiva</StyledName>
-          <button onClick={() => handleView('main')}>close</button>
+          <StyledButtonWrapper>
+
+            <button onClick={() => handleView('main')}>close</button>
+          </StyledButtonWrapper>
         </StyledNav>
       <StyledTable>
         {imageUrls.map((url, idx) => <StyledImgContainer><StyledImg src={url} key={idx} onClick={() => handleClick(idx)}></StyledImg></StyledImgContainer>)}
