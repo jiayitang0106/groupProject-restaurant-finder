@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CloseCircle } from 'styled-icons/remix-line/CloseCircle';
+import { Animate } from "react-simple-animate";
 
 const StyledContainer = styled.div`
   position: absolute;
@@ -108,25 +109,33 @@ const StyledClosed = styled(CloseCircle)`
 const Multi = ({imageUrls, handleClick, handleView}) =>  {
   return (
     <StyledContainer>
-      <StyledNavWrapper>
-        <StyledNav>
-        </StyledNav>
-        <StyledNav>
-          Barndiva
-        </StyledNav>
-        <StyledNav>
-          <StyledCounter>
-            0 of 0
-            <button onClick={() => handleView('multi')}>Multi</button> |
-          </StyledCounter>
-          <StyledClosed size="22" onClick={() => handleView('main')}>close</StyledClosed>
-        </StyledNav>
-      </StyledNavWrapper>
-      <StyledGridWrapper>
-        <StyledGrid>
-          {imageUrls.map((url, idx) => <StyledImgContainer key={idx}><StyledImg src={url} key={idx} onClick={() => handleClick(idx)}></StyledImg></StyledImgContainer>)}
-        </StyledGrid>
-      </StyledGridWrapper>
+      <Animate
+        play={true}
+        duration={.3}
+        start={{ transform: 'scale(0.5)', opacity: 0.5 }}
+        end={{ transform: 'scale(1)', opacity: 1 }}
+        easeType='cubic-bezier(0.645,0.045,0.355,1.000)'
+        >
+        <StyledNavWrapper>
+          <StyledNav>
+          </StyledNav>
+          <StyledNav>
+            Barndiva
+          </StyledNav>
+          <StyledNav>
+            <StyledCounter>
+              0 of 0
+              <button onClick={() => handleView('multi')}>Multi</button> |
+            </StyledCounter>
+            <StyledClosed size="22" onClick={() => handleView('main')}>close</StyledClosed>
+          </StyledNav>
+        </StyledNavWrapper>
+        <StyledGridWrapper>
+          <StyledGrid>
+            {imageUrls.map((url, idx) => <StyledImgContainer key={idx}><StyledImg src={url} key={idx} onClick={() => handleClick(idx)}></StyledImg></StyledImgContainer>)}
+          </StyledGrid>
+        </StyledGridWrapper>
+      </Animate>
     </StyledContainer>
   );
 }

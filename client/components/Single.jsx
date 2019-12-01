@@ -4,6 +4,7 @@ import { CloseCircle } from 'styled-icons/remix-line/CloseCircle';
 import { Grid } from 'styled-icons/boxicons-solid/Grid';
 import { KeyboardArrowRight } from 'styled-icons/material/KeyboardArrowRight';
 import { KeyboardArrowLeft } from 'styled-icons/material/KeyboardArrowLeft';
+import { Animate } from "react-simple-animate";
 
 const StyledContainer = styled.div`
   position: absolute;
@@ -150,27 +151,35 @@ const Single = ({ idx, total, handleView, url, handleClick }) =>  {
 
   return (
     <StyledContainer >
-      <StyledNavWrapper>
-        <StyledNav>
-        </StyledNav>
-        <StyledNav>
-          Barndiva
-        </StyledNav>
-        <StyledNav>
-          <StyledCounter>
-            {idx+1} of {total}
-          </StyledCounter>
-          <StyledMulti size="20" onClick={() => handleView('multi')}>multi</StyledMulti>
-          <StyledClosed size="22" onClick={() => handleView('main')}></StyledClosed>
-        </StyledNav>
-      </StyledNavWrapper>
-      <StyledImgWrapper>
-        <StyledImg src={url} />
-      </StyledImgWrapper>
-        <StyledButtonWrapper>
-          <StyledLeft size="30" onClick={() => handleClick(prev)}>prev</StyledLeft>
-          <StyledRight size="30" onClick={() => handleClick(next)}>next</StyledRight>
-        </StyledButtonWrapper>
+      <Animate
+        play={true} // set play true to start the animation
+        duration={.3} // how long is the animation duration
+        start={{ transform: 'scale(0.5)', opacity: 0.5 }}
+        end={{ transform: 'scale(1)', opacity: 1 }}
+        easeType='cubic-bezier(0.645,0.045,0.355,1.000)'
+        >
+        <StyledNavWrapper>
+          <StyledNav>
+          </StyledNav>
+          <StyledNav>
+            Barndiva
+          </StyledNav>
+          <StyledNav>
+            <StyledCounter>
+              {idx+1} of {total}
+            </StyledCounter>
+            <StyledMulti size="20" onClick={() => handleView('multi')}>multi</StyledMulti>
+            <StyledClosed size="22" onClick={() => handleView('single-exit')}></StyledClosed>
+          </StyledNav>
+        </StyledNavWrapper>
+        <StyledImgWrapper>
+          <StyledImg src={url} />
+        </StyledImgWrapper>
+        </Animate>
+          <StyledButtonWrapper>
+            <StyledLeft size="30" onClick={() => handleClick(prev)}>prev</StyledLeft>
+            <StyledRight size="30" onClick={() => handleClick(next)}>next</StyledRight>
+          </StyledButtonWrapper>
     </StyledContainer>
   );
 }
