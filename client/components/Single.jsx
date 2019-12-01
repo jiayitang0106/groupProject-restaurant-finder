@@ -34,6 +34,7 @@ const StyledImg = styled.img`
   max-width: 1400px
   max-height: 900px;
   object-fit: cover;
+  display: table;
 `
 
 const StyledButtonWrapper = styled.div`
@@ -90,9 +91,14 @@ const StyledMulti = styled(Grid)`
 const StyledLeft = styled(KeyboardArrowLeft)`
   padding: 5px;
   color: #e1e1e1;
+  left: 60px;
+  top: calc(50% - 20px);
+  position: absolute;
+  z-index: 2;
+
   &:hover {
-    color: #101820;
-    background-color: #e1e1e1;
+    /* color: #101820; */
+    background-color: #101820;
     opacity: .8;
     border-radius: 50%;
   }
@@ -101,13 +107,19 @@ const StyledLeft = styled(KeyboardArrowLeft)`
 const StyledRight = styled(KeyboardArrowRight)`
   padding: 5px;
   color: #e1e1e1;
+  right: 60px;
+  top: calc(50% - 20px);
+  position: absolute;
+  z-index: 2;
+
   &:hover {
-    color: #101820;
-    background-color: #e1e1e1;
+    /* color: #101820; */
+    background-color: #101820;
     opacity: .8;
     border-radius: 50%;
   }
 `
+
 
 const Single = ({ idx, total, handleView, url, handleClick }) =>  {
   let prev = idx === 0 ? total - 1 : idx - 1;
@@ -146,8 +158,8 @@ const Single = ({ idx, total, handleView, url, handleClick }) =>  {
       <StyledImgWrapper>
         <StyledImg src={url} />
         <StyledButtonWrapper>
-          <StyledLeft size="22" onClick={() => handleClick(prev)}>prev</StyledLeft>
-          <StyledRight size="22" onClick={() => handleClick(next)}>next</StyledRight>
+          <StyledLeft size="30" onClick={() => handleClick(prev)}>prev</StyledLeft>
+          <StyledRight size="30" onClick={() => handleClick(next)}>next</StyledRight>
         </StyledButtonWrapper>
       </StyledImgWrapper>
     </StyledContainer>
