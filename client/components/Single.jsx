@@ -23,8 +23,12 @@ const StyledContainer = styled.div`
 
 const StyledImgWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
   vertical-align: middle;
+  justify-content: center;
+  /* flex-direction: column; */
+  /* height: 100%;
+  width: 100%; */
 `
 
 const StyledImg = styled.img`
@@ -34,7 +38,6 @@ const StyledImg = styled.img`
   max-width: 1400px
   max-height: 900px;
   object-fit: cover;
-  display: table;
 `
 
 const StyledButtonWrapper = styled.div`
@@ -56,9 +59,12 @@ const StyledNavWrapper = styled.div`
 const StyledNav = styled.div`
   margin: auto;
   vertical-align: middle;
-  color: white;
-  font: 11px/13px 'Arial';
+  color: #e1e1e1;
+  font: 14px/16px 'Arial';
   letter-spacing: .2em;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-transform: uppercase;
   flex: 1;
 `
@@ -66,6 +72,10 @@ const StyledNav = styled.div`
 const StyledCounter = styled.span`
   padding-right: 8px;
   letter-spacing: .05em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  font-size: 11px;
 `
 
 const StyledClosed = styled(CloseCircle)`
@@ -120,7 +130,6 @@ const StyledRight = styled(KeyboardArrowRight)`
   }
 `
 
-
 const Single = ({ idx, total, handleView, url, handleClick }) =>  {
   let prev = idx === 0 ? total - 1 : idx - 1;
   let next = idx + 1 === total ? 0 : idx + 1;
@@ -157,11 +166,11 @@ const Single = ({ idx, total, handleView, url, handleClick }) =>  {
       </StyledNavWrapper>
       <StyledImgWrapper>
         <StyledImg src={url} />
+      </StyledImgWrapper>
         <StyledButtonWrapper>
           <StyledLeft size="30" onClick={() => handleClick(prev)}>prev</StyledLeft>
           <StyledRight size="30" onClick={() => handleClick(next)}>next</StyledRight>
         </StyledButtonWrapper>
-      </StyledImgWrapper>
     </StyledContainer>
   );
 }
