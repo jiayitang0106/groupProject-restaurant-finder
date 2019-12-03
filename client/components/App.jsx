@@ -89,22 +89,22 @@ class App extends Component {
     this.handleView = this.handleView.bind(this);
   }
 
-  // componentDidMount() {
-  //   const urlString = window.location.href;
-  //   const url = new URL(urlString);
-  //   const restaurantID = url.searchParams.get('id');
+  componentDidMount() {
+    const urlString = window.location.href;
+    const url = new URL(urlString);
+    const restaurantID = url.searchParams.get('restaurantID');
 
-  //   axios.get(`/api/restaurants/${restaurantID}`)
-  //     .then(res => {
-  //       const { id, imageUrls, name } = res.data[0];
-  //       this.setState({
-  //         id,
-  //         name,
-  //         imageUrls,
-  //       });
-  //     })
-  //     .catch(err => console.log(err));
-  // }
+    axios.get(`/api/restaurants/${restaurantID}`)
+      .then(res => {
+        const { id, imageUrls, name } = res.data[0];
+        this.setState({
+          id,
+          name,
+          imageUrls,
+        });
+      })
+      .catch(err => console.log(err));
+  }
 
   handleClick(idx) {
     this.setState({

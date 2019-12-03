@@ -14,51 +14,51 @@ describe('Image Carousel Tests', () => {
 
     describe('App component', () => {
     it('expect initial view to be main', () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<App />, { disableLifecycleMethods: true });
       const viewState = wrapper.state().view;
       expect(viewState).toEqual('main');
     });
 
     it('expect styled components Container, Carousel, and Button to be rendered', () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<App />, { disableLifecycleMethods: true });
       expect(wrapper.find('container')).toHaveLength(1);
       expect(wrapper.find('carousel')).toHaveLength(1);
       expect(wrapper.find('button')).toHaveLength(1);
     });
 
     it('expect view components to not be initially rendered', () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<App />, { disableLifecycleMethods: true });
       expect(wrapper.find(Single)).toHaveLength(0);
       expect(wrapper.find(Multi)).toHaveLength(0);
     });
 
     it('expect styled Button click handler to render multi view', () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<App />, { disableLifecycleMethods: true });
       wrapper.find('button').simulate('click');
       const viewState = wrapper.state().view;
       expect(viewState).toEqual('multi');
     });
 
     it('expect number of photos for button text is correct', () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<App />, { disableLifecycleMethods: true });
       wrapper.setState({ imageUrls: [1,2,3,4,5,6,7,8,9,10,11,12,13,14]})
       expect(wrapper.find('button').text()).toEqual('14 photos +');
     });
 
     it('expect images rendered in carousel', () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<App />, { disableLifecycleMethods: true });
       wrapper.setState({ imageUrls: [0,1,2,3,4,5,6,7,8,9]})
       expect(wrapper.find(Image)).toHaveLength(10);
     });
 
     it('expect Single component to be rendered when view is changed to single', () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<App />, { disableLifecycleMethods: true });
       wrapper.setState({ view: 'single'})
       expect(wrapper.find(Single)).toHaveLength(1);
     });
 
     it('expect Multi component to be rendered when view is changed to multi', () => {
-      const wrapper = shallow(<App />);
+      const wrapper = shallow(<App />, { disableLifecycleMethods: true });
       wrapper.setState({ view: 'multi'})
       expect(wrapper.find(Multi)).toHaveLength(1);
     });
