@@ -22,7 +22,6 @@ const Carousel = styled.div`
   overflow: hidden;
   display: flex;
 `
-
 Carousel.displayName = 'carousel';
 
 const Button = styled.button`
@@ -48,8 +47,8 @@ const Button = styled.button`
     outline: 0;
   }
 `
-
 Button.displayName = 'button';
+
 // const StyledShare = styled.div`
 //   background: #101820;
 //   width: 242;
