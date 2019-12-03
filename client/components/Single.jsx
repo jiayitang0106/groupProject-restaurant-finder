@@ -169,7 +169,7 @@ const Single = ({ idx, total, handleView, url, handleClick, name }) =>  {
               {idx+1} of {total}
             </StyledCounter>
             <StyledMulti size="20" onClick={() => handleView('multi')}>multi</StyledMulti>
-            <StyledClosed size="22" onClick={() => handleView('single-exit')}></StyledClosed>
+            <StyledClosed size="22" onClick={() => handleView('main')}></StyledClosed>
           </StyledNav>
         </StyledNavWrapper>
         <StyledImgWrapper>
