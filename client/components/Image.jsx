@@ -26,7 +26,7 @@ const BottomSmallContainer = styled(TopSmallContainer)`
   border-bottom: 0;
 `
 
-const BigImg = styled.img`
+const StyledImg = styled.img`
   width: 100%;
   height: 100%;
   display: block;
@@ -38,27 +38,26 @@ const BigImg = styled.img`
     opacity: .9;
   }
 `
-const SmallImg = styled(BigImg)`
-  width: 190px;
-  height: 192px;
-`
+// const SmallImg = styled(StyledImg)`
+//   width: 190px;
+//   height: 192px;
+// `
 
 const Image = ({src, handleClick, idx, imageUrls}) =>  {
-  // console.log(props.src);
   if (idx % 3 === 0) {
     return (
       <BigImgContainer>
-        <BigImg src={src} onClick={() => handleClick(idx)}></BigImg>
+        <StyledImg src={src} onClick={() => handleClick(idx)}></StyledImg>
       </BigImgContainer>
     );
   } else if (idx % 3 === 1) {
     return (
       <ColumnContainer>
         <TopSmallContainer>
-          <SmallImg src={src} onClick={() => handleClick(idx)}></SmallImg>
+          <StyledImg src={src} onClick={() => handleClick(idx)}></StyledImg>
         </TopSmallContainer>
         <BottomSmallContainer>
-          <SmallImg src={imageUrls[idx+1]} onClick={() => handleClick(idx+1)}></SmallImg>
+          <StyledImg src={imageUrls[idx+1]} onClick={() => handleClick(idx+1)}></StyledImg>
         </BottomSmallContainer>
       </ColumnContainer>
     );

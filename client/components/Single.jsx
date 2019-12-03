@@ -131,7 +131,7 @@ const StyledRight = styled(KeyboardArrowRight)`
   }
 `
 
-const Single = ({ idx, total, handleView, url, handleClick }) =>  {
+const Single = ({ idx, total, handleView, url, handleClick, name }) =>  {
   let prev = idx === 0 ? total - 1 : idx - 1;
   let next = idx + 1 === total ? 0 : idx + 1;
 
@@ -150,10 +150,10 @@ const Single = ({ idx, total, handleView, url, handleClick }) =>  {
   };
 
   return (
-    <StyledContainer >
+    <StyledContainer>
       <Animate
-        play={true} // set play true to start the animation
-        duration={.3} // how long is the animation duration
+        play={true}
+        duration={.3}
         start={{ transform: 'scale(0.5)', opacity: 0.5 }}
         end={{ transform: 'scale(1)', opacity: 1 }}
         easeType='cubic-bezier(0.645,0.045,0.355,1.000)'
@@ -162,7 +162,7 @@ const Single = ({ idx, total, handleView, url, handleClick }) =>  {
           <StyledNav>
           </StyledNav>
           <StyledNav>
-            Barndiva
+            {name}
           </StyledNav>
           <StyledNav>
             <StyledCounter>

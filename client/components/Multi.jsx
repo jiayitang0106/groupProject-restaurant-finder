@@ -26,14 +26,14 @@ const StyledGridWrapper = styled.div`
 const StyledGrid = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 1000px;
+  width: 1200px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
   background: none;
   border-radius: 0;
   box-shadow: none;
-  max-height: 850px;
+  max-height: 900px;
   max-width: 100%;
   overflow-y: scroll;
 
@@ -43,7 +43,6 @@ const StyledGrid = styled.div`
     color: #e1e1e1;
     border-radius: 10px;
   }
-
 `
 
 const StyledImgContainer = styled.div`
@@ -54,7 +53,8 @@ const StyledImgContainer = styled.div`
 
 const StyledImg = styled.img`
   width: 100%;
-  height: 250px;
+  min-height: 300px;
+  max-height: 100%;
   object-fit: cover;
   transition: .2s ease-in-out;
 
@@ -106,7 +106,7 @@ const StyledClosed = styled(CloseCircle)`
   }
 `
 
-const Multi = ({imageUrls, handleClick, handleView}) =>  {
+const Multi = ({imageUrls, name, handleClick, handleView}) =>  {
   return (
     <StyledContainer>
       <Animate
@@ -120,7 +120,7 @@ const Multi = ({imageUrls, handleClick, handleView}) =>  {
           <StyledNav>
           </StyledNav>
           <StyledNav>
-            Barndiva
+            {name}
           </StyledNav>
           <StyledNav>
             <StyledCounter>
