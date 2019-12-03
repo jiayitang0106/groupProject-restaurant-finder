@@ -40,6 +40,7 @@ const StyledImg = styled.img`
   max-height: 900px;
   object-fit: cover;
 `
+StyledImg.displayName = 'styledimg';
 
 const StyledButtonWrapper = styled.div`
   margin-left: auto;
@@ -78,6 +79,7 @@ const StyledCounter = styled.span`
   font-smoothing: antialiased;
   font-size: 11px;
 `
+StyledCounter.displayName = 'styledcounter';
 
 const StyledClosed = styled(CloseCircle)`
   padding: 8px;

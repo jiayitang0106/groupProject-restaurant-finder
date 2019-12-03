@@ -92,7 +92,7 @@ class App extends Component {
   // componentDidMount() {
   //   const urlString = window.location.href;
   //   const url = new URL(urlString);
-  //   const restaurantID = url.searchParams.get('restaurantID');
+  //   const restaurantID = url.searchParams.get('id');
 
   //   axios.get(`/api/restaurants/${restaurantID}`)
   //     .then(res => {
