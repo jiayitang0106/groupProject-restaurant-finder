@@ -38,6 +38,7 @@ const StyledImg = styled.img`
     opacity: .9;
   }
 `
+StyledImg.displayName = 'styledimg';
 // const SmallImg = styled(StyledImg)`
 //   width: 190px;
 //   height: 192px;

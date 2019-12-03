@@ -63,6 +63,7 @@ const StyledImg = styled.img`
     opacity: .9;
   }
 `
+StyledImg.displayName = 'styledimg';
 
 const StyledNavWrapper = styled.div`
   vertical-align: middle;
@@ -85,6 +86,7 @@ const StyledNav = styled.div`
   text-transform: uppercase;
   flex: 1;
 `
+StyledNav.displayName = 'stylednav';
 
 const StyledCounter = styled.span`
   padding-right: 8px;
@@ -105,6 +107,7 @@ const StyledClosed = styled(CloseCircle)`
     opacity: .85;
   }
 `
+StyledClosed.displayName = 'styledclosed';
 
 const Multi = ({imageUrls, name, handleClick, handleView}) =>  {
   return (

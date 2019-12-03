@@ -40,6 +40,7 @@ const StyledImg = styled.img`
   max-height: 900px;
   object-fit: cover;
 `
+StyledImg.displayName = 'styledimg';
 
 const StyledButtonWrapper = styled.div`
   margin-left: auto;
@@ -78,6 +79,7 @@ const StyledCounter = styled.span`
   font-smoothing: antialiased;
   font-size: 11px;
 `
+StyledCounter.displayName = 'styledcounter';
 
 const StyledClosed = styled(CloseCircle)`
   padding: 8px;
@@ -169,7 +171,7 @@ const Single = ({ idx, total, handleView, url, handleClick, name }) =>  {
               {idx+1} of {total}
             </StyledCounter>
             <StyledMulti size="20" onClick={() => handleView('multi')}>multi</StyledMulti>
-            <StyledClosed size="22" onClick={() => handleView('single-exit')}></StyledClosed>
+            <StyledClosed size="22" onClick={() => handleView('main')}></StyledClosed>
           </StyledNav>
         </StyledNavWrapper>
         <StyledImgWrapper>
