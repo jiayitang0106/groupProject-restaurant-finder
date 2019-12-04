@@ -7,16 +7,15 @@ const db = mongoose.connection;
 
 mongoose.connect('mongodb://localhost/zagat', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 })
   .then(() => console.log('Database connected'))
   .catch(err => console.log(err));
 
 
-
 const get = (id) => {
   return new Promise((resolve, reject) => {
-    Restaurants.find({ 'id': id })
+    Restaurants.find({ id })
       .exec((err, docs) => {
         if (err) {
           reject(err);
@@ -24,7 +23,6 @@ const get = (id) => {
         resolve(docs);
       });
   });
-}
+};
 
 module.exports = { db, get };
-

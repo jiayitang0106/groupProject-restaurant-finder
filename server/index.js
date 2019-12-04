@@ -8,7 +8,7 @@ const app = express();
 
 app.use(morgan('dev'));
 app.use(parser.json());
-app.use(parser.urlencoded({ extended: true}));
+app.use(parser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 

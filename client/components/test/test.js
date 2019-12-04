@@ -1,7 +1,7 @@
 import React from 'react';
-import Enzyme, { configure, shallow, mount } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import App from '../App.jsx'
+import App from '../App.jsx';
 import Image from '../Image.jsx';
 import Single from '../Single.jsx';
 import Animate from '../Single.jsx';
@@ -94,7 +94,7 @@ describe('Image Carousel Tests', () => {
     });
 
     it('expect the right correct index number to be displayed', () => {
-      const wrapper = shallow(<Single idx={1} imageUrls={[0,1,2]} total={3}/>);
+      const wrapper = shallow(<Single idx={1} imageUrls={[0,1,2]} total={3} />);
       expect(wrapper.find('styledcounter').text()).toEqual('2 of 3');
     });
 
