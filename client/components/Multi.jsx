@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CloseCircle } from 'styled-icons/remix-line/CloseCircle';
-import { Animate } from "react-simple-animate";
+import { Animate } from 'react-simple-animate';
 
 const StyledContainer = styled.div`
   position: absolute;
@@ -16,12 +16,13 @@ const StyledContainer = styled.div`
   text-align: center;
   color: #fff;
   /* display: table; */
-`
+`;
+
 const StyledGridWrapper = styled.div`
   display: flex;
   flex-direction: column;
   vertical-align: middle;
-`
+`;
 
 const StyledGrid = styled.div`
   margin-left: auto;
@@ -43,13 +44,13 @@ const StyledGrid = styled.div`
     color: #e1e1e1;
     border-radius: 10px;
   }
-`
+`;
 
 const StyledImgContainer = styled.div`
   display: inline-block;
   overflow: hidden;
   background-color: black;
-`
+`;
 
 const StyledImg = styled.img`
   width: 100%;
@@ -62,7 +63,7 @@ const StyledImg = styled.img`
     transform: scale(1.01);
     opacity: .9;
   }
-`
+`;
 StyledImg.displayName = 'styledimg';
 
 const StyledNavWrapper = styled.div`
@@ -72,7 +73,7 @@ const StyledNavWrapper = styled.div`
   top: 0px;
   height: 80px;
   width: 100%;
-`
+`;
 
 const StyledNav = styled.div`
   margin: auto;
@@ -85,7 +86,7 @@ const StyledNav = styled.div`
   -moz-osx-font-smoothing: grayscale;
   text-transform: uppercase;
   flex: 1;
-`
+`;
 StyledNav.displayName = 'stylednav';
 
 const StyledCounter = styled.span`
@@ -96,7 +97,7 @@ const StyledCounter = styled.span`
   font-smoothing: antialiased;
   font-size: 11px;
   visibility: hidden;
-`
+`;
 
 const StyledClosed = styled(CloseCircle)`
   padding: 8px;
@@ -106,22 +107,21 @@ const StyledClosed = styled(CloseCircle)`
     background-color: #e1e1e1;
     opacity: .85;
   }
-`
+`;
 StyledClosed.displayName = 'styledclosed';
 
-const Multi = ({imageUrls, name, handleClick, handleView}) =>  {
+const Multi = ({ imageUrls, name, handleClick, handleView }) => {
   return (
     <StyledContainer>
       <Animate
-        play={true}
-        duration={.3}
+        play
+        duration={0.3}
         start={{ transform: 'scale(0.5)', opacity: 0.5 }}
         end={{ transform: 'scale(1)', opacity: 1 }}
-        easeType='cubic-bezier(0.645,0.045,0.355,1.000)'
-        >
+        easeType="cubic-bezier(0.645,0.045,0.355,1.000)"
+      >
         <StyledNavWrapper>
-          <StyledNav>
-          </StyledNav>
+          <StyledNav />
           <StyledNav>
             {name}
           </StyledNav>
@@ -135,12 +135,12 @@ const Multi = ({imageUrls, name, handleClick, handleView}) =>  {
         </StyledNavWrapper>
         <StyledGridWrapper>
           <StyledGrid>
-            {imageUrls.map((url, idx) => <StyledImgContainer key={idx}><StyledImg src={url} key={idx} onClick={() => handleClick(idx)}></StyledImg></StyledImgContainer>)}
+            {imageUrls.map((url, idx) => <StyledImgContainer key={idx}><StyledImg src={url} key={idx} onClick={() => handleClick(idx)} /></StyledImgContainer>)}
           </StyledGrid>
         </StyledGridWrapper>
       </Animate>
     </StyledContainer>
   );
-}
+};
 
-export default Multi
+export default Multi;

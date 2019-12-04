@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Image from './Image.jsx';
 import Single from './Single.jsx';
 import Multi from './Multi.jsx';
-import { Facebook } from 'styled-icons/boxicons-logos/Facebook';
+// import { Facebook } from 'styled-icons/boxicons-logos/Facebook';
 
 
 const Container = styled.div`
@@ -13,7 +13,7 @@ const Container = styled.div`
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
-`
+`;
 Container.displayName = 'container';
 
 const Carousel = styled.div`
@@ -21,7 +21,7 @@ const Carousel = styled.div`
   position: relative;
   overflow: hidden;
   display: flex;
-`
+`;
 Carousel.displayName = 'carousel';
 
 const Button = styled.button`
@@ -46,7 +46,7 @@ const Button = styled.button`
   &:focus {
     outline: 0;
   }
-`
+`;
 Button.displayName = 'button';
 
 // const StyledShare = styled.div`
@@ -110,17 +110,17 @@ class App extends Component {
     this.setState({
       view: 'single',
       single: idx,
-    })
+    });
   }
 
   handleView(view) {
     this.setState({
       view,
-    })
+    });
   }
 
   renderView() {
-    const { imageUrls, single, view, name }= this.state;
+    const { imageUrls, single, view, name } = this.state;
     if (view === 'single') {
       return (
         <Single url={imageUrls[single]} idx={single} total={imageUrls.length} name={name} handleClick={this.handleClick} handleView={this.handleView} />
@@ -134,7 +134,7 @@ class App extends Component {
 
   render() {
     document.onkeydown = null;
-    const { imageUrls, single, view }= this.state;
+    const { imageUrls, single, view } = this.state;
     return (
       <React.Fragment>
         {this.renderView()}

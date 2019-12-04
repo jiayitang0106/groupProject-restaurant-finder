@@ -1,5 +1,5 @@
-const Restaurants = require('./restaurant.js');
 const faker = require('faker');
+const Restaurants = require('./restaurant.js');
 
 const populate = () => {
   const data = [];
@@ -8,11 +8,11 @@ const populate = () => {
     const name = faker.random.words();
     const restaurant = {
       id: i,
-      name: name,
+      name,
       imageUrls: [],
-    }
+    };
 
-    let numberPhotos = Math.floor(Math.random() * 12 + 9);
+    const numberPhotos = Math.floor(Math.random() * 12 + 9);
 
     for (let j = numberPhotos; j > 0; j--) {
       const num = Math.floor((Math.random() * 822 + 1));

@@ -4,7 +4,7 @@ import { CloseCircle } from 'styled-icons/remix-line/CloseCircle';
 import { Grid } from 'styled-icons/boxicons-solid/Grid';
 import { KeyboardArrowRight } from 'styled-icons/material/KeyboardArrowRight';
 import { KeyboardArrowLeft } from 'styled-icons/material/KeyboardArrowLeft';
-import { Animate } from "react-simple-animate";
+import { Animate } from 'react-simple-animate';
 
 const StyledContainer = styled.div`
   position: absolute;
@@ -20,7 +20,7 @@ const StyledContainer = styled.div`
   /* margin-top: auto;
   margin-bottom: auto; */
   /* display: table; */
-`
+`;
 
 const StyledImgWrapper = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ const StyledImgWrapper = styled.div`
   /* flex-direction: column; */
   /* height: 100%;
   width: 100%; */
-`
+`;
 
 const StyledImg = styled.img`
   margin-left: auto;
@@ -39,7 +39,7 @@ const StyledImg = styled.img`
   max-width: 1400px
   max-height: 900px;
   object-fit: cover;
-`
+`;
 StyledImg.displayName = 'styledimg';
 
 const StyledButtonWrapper = styled.div`
@@ -47,7 +47,7 @@ const StyledButtonWrapper = styled.div`
   margin-right: auto;
   background: none;
   border: 0;
-`
+`;
 
 const StyledNavWrapper = styled.div`
   vertical-align: middle;
@@ -56,7 +56,7 @@ const StyledNavWrapper = styled.div`
   top: 0px;
   height: 80px;
   width: 100%;
-`
+`;
 
 const StyledNav = styled.div`
   margin: auto;
@@ -69,7 +69,7 @@ const StyledNav = styled.div`
   -moz-osx-font-smoothing: grayscale;
   text-transform: uppercase;
   flex: 1;
-`
+`;
 
 const StyledCounter = styled.span`
   padding-right: 8px;
@@ -78,7 +78,7 @@ const StyledCounter = styled.span`
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
   font-size: 11px;
-`
+`;
 StyledCounter.displayName = 'styledcounter';
 
 const StyledClosed = styled(CloseCircle)`
@@ -89,7 +89,7 @@ const StyledClosed = styled(CloseCircle)`
     background-color: #e1e1e1;
     opacity: .85;
   }
-`
+`;
 
 const StyledMulti = styled(Grid)`
   padding: 8px;
@@ -99,7 +99,7 @@ const StyledMulti = styled(Grid)`
     background-color: #e1e1e1;
     opacity: .85;
   }
-`
+`;
 
 const StyledLeft = styled(KeyboardArrowLeft)`
   padding: 5px;
@@ -115,7 +115,7 @@ const StyledLeft = styled(KeyboardArrowLeft)`
     opacity: .8;
     border-radius: 50%;
   }
-`
+`;
 
 const StyledRight = styled(KeyboardArrowRight)`
   padding: 5px;
@@ -131,13 +131,13 @@ const StyledRight = styled(KeyboardArrowRight)`
     opacity: .8;
     border-radius: 50%;
   }
-`
+`;
 
 const Single = ({ idx, total, handleView, url, handleClick, name }) =>  {
-  let prev = idx === 0 ? total - 1 : idx - 1;
-  let next = idx + 1 === total ? 0 : idx + 1;
+  const prev = idx === 0 ? total - 1 : idx - 1;
+  const next = idx + 1 === total ? 0 : idx + 1;
 
-  document.onkeydown = function(e) {
+  document.onkeydown = (e) => {
     switch (e.keyCode) {
       case 27:
         handleView('main');
@@ -148,42 +148,43 @@ const Single = ({ idx, total, handleView, url, handleClick, name }) =>  {
       case 39:
         handleClick(next);
         break;
+      default:
+        break;
     }
   };
 
   return (
     <StyledContainer>
       <Animate
-        play={true}
-        duration={.3}
+        play
+        duration={0.3}
         start={{ transform: 'scale(0.5)', opacity: 0.5 }}
         end={{ transform: 'scale(1)', opacity: 1 }}
-        easeType='cubic-bezier(0.645,0.045,0.355,1.000)'
-        >
+        easeType="cubic-bezier(0.645,0.045,0.355,1.000)"
+      >
         <StyledNavWrapper>
-          <StyledNav>
-          </StyledNav>
+          <StyledNav />
           <StyledNav>
             {name}
           </StyledNav>
           <StyledNav>
             <StyledCounter>
-              {idx+1} of {total}
+              {idx + 1} of {total}
             </StyledCounter>
             <StyledMulti size="20" onClick={() => handleView('multi')}>multi</StyledMulti>
-            <StyledClosed size="22" onClick={() => handleView('main')}></StyledClosed>
+            <StyledClosed size="22" onClick={() => handleView('main')} />
           </StyledNav>
         </StyledNavWrapper>
         <StyledImgWrapper>
           <StyledImg src={url} />
         </StyledImgWrapper>
-        </Animate>
-          <StyledButtonWrapper>
-            <StyledLeft size="30" onClick={() => handleClick(prev)}>prev</StyledLeft>
-            <StyledRight size="30" onClick={() => handleClick(next)}>next</StyledRight>
-          </StyledButtonWrapper>
+      </Animate>
+      <StyledButtonWrapper>
+        <StyledLeft size="30" onClick={() => handleClick(prev)}>prev</StyledLeft>
+        <StyledRight size="30" onClick={() => handleClick(next)}>next</StyledRight>
+      </StyledButtonWrapper>
     </StyledContainer>
   );
-}
+};
 
-export default Single
+export default Single;

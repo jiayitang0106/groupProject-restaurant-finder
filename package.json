@@ -18,10 +18,14 @@
     "babel": "^6.23.0",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "eslint": "^6.7.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "jest": "^24.9.0",
@@ -38,9 +42,6 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },
-  "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git"
-  },
   "version": "1.0.0",
   "main": "server/index.js",
   "repository": {
@@ -50,5 +51,9 @@
   "bugs": {
     "url": "https://github.com/hrr42-fec5/service-allen/issues"
   },
-  "homepage": "https://github.com/hrr42-fec5/service-allen#readme"
+  "homepage": "https://github.com/hrr42-fec5/service-allen#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-plugin-react": "^7.17.0"
+  }
 }
