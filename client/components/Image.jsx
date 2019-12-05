@@ -6,7 +6,7 @@ const BigImgContainer = styled.div`
   min-width: 384px;
   height: 384px;
   overflow:hidden;
-  background-color: black;
+  background-color: #000;
 `;
 
 const ColumnContainer = styled.div`
@@ -39,10 +39,7 @@ const StyledImg = styled.img`
   }
 `;
 StyledImg.displayName = 'styledimg';
-// const SmallImg = styled(StyledImg)`
-//   width: 190px;
-//   height: 192px;
-// `
+
 
 const Image = ({ src, handleClick, idx, imageUrls }) => {
   if (idx % 3 === 0) {

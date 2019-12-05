@@ -48,12 +48,15 @@ const StyledGrid = styled.div`
 
 const StyledImgContainer = styled.div`
   display: inline-block;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  background-color: black;
+  background-color: #000;
 `;
 
 const StyledImg = styled.img`
   width: 100%;
+  height: 100%;
   min-height: 300px;
   max-height: 100%;
   object-fit: cover;
