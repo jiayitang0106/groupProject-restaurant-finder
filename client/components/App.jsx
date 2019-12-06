@@ -264,15 +264,15 @@ class App extends Component {
     if (this.state.open === true) {
       return (
         <React.Fragment>
-        <StyledEmail size="20" />
-        <StyledLine>.</StyledLine>
-        <StyledFacebook size="20" />
-        <StyledTwitter size="20" />
-        <StyledPinterest size="20" />
-        <StyledGooglePlus size="20" />
-        <StyledTumblr size="20" />
-        <StyledDots size="20" onClick={() => this.setState({ open: false })} />
-      </React.Fragment>
+          <StyledEmail size="20" />
+          <StyledLine>.</StyledLine>
+          <StyledFacebook size="20" />
+          <StyledTwitter size="20" />
+          <StyledPinterest size="20" />
+          <StyledGooglePlus size="20" />
+          <StyledTumblr size="20" />
+          <StyledDots size="20" onClick={() => this.setState({ open: false })} />
+        </React.Fragment>
       )
     } else {
       return (
