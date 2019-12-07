@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 3001
 
-CMD ["npm", "start"]
+CMD ["sh", "-c", "npm run db:seed && npm start && npm run build"]

@@ -5,7 +5,7 @@ mongoose.set('useCreateIndex', true);
 
 const db = mongoose.connection;
 
-mongoose.connect('mongodb://localhost/zagat', {
+mongoose.connect('mongodb://mongo:27017/zagat', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
