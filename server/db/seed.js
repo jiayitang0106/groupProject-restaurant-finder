@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+const db = require('./index.js');
 const faker = require('faker');
 const Restaurants = require('./restaurant.js');
 
@@ -24,7 +26,8 @@ const populate = () => {
 
   Restaurants.insertMany(data)
     .then(() => console.log('Database populated'))
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(() => mongoose.connection.close());
 };
 
 populate();
