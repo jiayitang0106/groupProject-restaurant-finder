@@ -6,6 +6,6 @@ const restaurantSchema = new mongoose.Schema({
   imageUrls: [],
 });
 
-const Restaurant = mongoose.model('Restaurant', restaurantSchema);
+const Images = mongoose.model('Image', restaurantSchema);
 
-module.exports = Restaurant;
+module.exports = Images;
