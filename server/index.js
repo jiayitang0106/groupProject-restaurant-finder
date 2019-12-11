@@ -2,8 +2,8 @@ const express = require('express');
 require('dotenv').config();
 const parser = require('body-parser');
 const morgan = require('morgan');
-const db = require('./db/index.js');
 const cors = require('cors');
+const db = require('./db/index.js');
 
 const app = express();
 
