@@ -222,7 +222,7 @@ class App extends Component {
     const url = new URL(urlString);
     const restaurantID = url.searchParams.get('restaurantID');
 
-    axios.get(`/api/restaurants/${restaurantID}`)
+    axios.get(`/api/images/${restaurantID}`)
       .then(res => {
         const { id, imageUrls, name } = res.data[0];
         this.setState({

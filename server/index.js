@@ -14,7 +14,7 @@ app.use(parser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 
-app.get('/api/restaurants/:restaurantId', (req, res) => {
+app.get('/api/images/:restaurantId', (req, res) => {
   const id = parseInt(req.params.restaurantId);
   db.get(id)
     .then(entry => res.status(200).send(entry))
