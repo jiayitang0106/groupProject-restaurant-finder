@@ -5,8 +5,11 @@
 ## CRUD API:
 
 Post(Create): api/image/restaurantId
+
 Get(Read): api/image/restaurantId
+
 Put(Update): api/image/restaurantId
+
 Delete(Delete): api/image/restaurantId
   
 ## Table of Contents
