@@ -31,7 +31,7 @@ const insert = (data) => {
 };
 
 const updateData = (id, data) => {
-    return new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
       Restaurants.update({id}, data)
         .exec((err, data) => {
           if (err) {
@@ -43,7 +43,7 @@ const updateData = (id, data) => {
   };
 
 const del = (id) => {
-  return Restaurants.find({id})
+  Restaurants.find({id})
   .remove()
   .exec();
 }
