@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Restaurants = require('./restaurant.js');
-mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
 
 const db = mongoose.connection;
