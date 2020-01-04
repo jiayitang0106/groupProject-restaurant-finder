@@ -20,8 +20,6 @@ const seed = () => {
       imageUrls: []
     };
 
-    //const numberPhotos = Math.floor(Math.random() * 200 + 5);
-
     for (let j = 100; j > 0; j--) {
       const num = Math.floor((Math.random() * 822 + 1));
       const url = `https://hrr42-fec5.s3-us-west-1.amazonaws.com/photo${num}.jpg`;
