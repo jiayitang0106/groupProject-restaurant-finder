@@ -28,37 +28,6 @@ app.get('/api/images/:restaurantId', (req, res) => {
     });
 });
 
-// app.post('/api/images', (req, res) => {
-//   const data = req.body;
-//   db.insert(data)
-//     .then(res.status(201).end())
-//     .catch(error => {
-//       console.log('Error occurs in Post')
-//       res.status(404).end();
-//     });
-// });
-
-// app.put('/api/images/:restaurantId', (req, res) => {
-//   const data = req.body;
-//   const id = req.params.restaurantId;
-//   db.updateData(id, data)
-//     .then(res.status(201).end())
-//     .catch(error => {
-//       console.log('Error occurs in Put')
-//       res.status(400).end();
-//   });
-// });
-
-// app.delete('/api/images/:restaurantId', (req, res) => {
-//   const id = req.params.restaurantId;
-//   db.del(id)
-//     .then(res.status(201).end())
-//     .catch(error => {
-//       console.log('Error occurs in Delete')
-//       res.status(400).end();
-//   })
-// });
-
 const port = process.env.PORT || 9042;
 
 app.listen(port, console.log(`Server running on port: ${port}`));
