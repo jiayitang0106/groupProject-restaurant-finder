@@ -12,7 +12,7 @@ const csvWriter = createCsvWriter({
 
 const records = [];
 const seed = () => {
-  for (let i = 80001; i <= 100000; i++) {
+  for (let i = 0; i <= 20000; i++) {
     const name = faker.company.companyName();
     const imagePage = {
       id: i,
